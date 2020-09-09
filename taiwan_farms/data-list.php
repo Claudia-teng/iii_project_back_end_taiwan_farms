@@ -4,7 +4,7 @@ $page_name = 'data-list';
 require __DIR__. '/parts/__connect_db.php';
 
 
-$sql = sprintf("SELECT * FROM `taiwan_farms`");
+$sql = sprintf("SELECT * FROM `taiwan_farms` ORDER BY sid DESC");
 
 $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
@@ -123,7 +123,7 @@ th {
 
 function delete_it(sid) {
     if (confirm(`確定要刪除嗎`)) {
-        location.href='data-delete.php?sid=' + sid;
+        location.href='data-delete.php?sid=' + sid;;
     }
 }
 

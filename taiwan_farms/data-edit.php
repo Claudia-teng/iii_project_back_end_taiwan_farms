@@ -62,6 +62,14 @@ $cates = $pdo->query($c_sql)->fetchAll();
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="name">縣市分類代碼</label>
+                            <select class="form-control" id="category_sid" name="category_sid">
+                                <?php foreach($cates as $c): ?>
+                                    <option value="<?= $c['sid'] ?>"<?= $row['category_sid']== $c['sid'] ? 'selected' : '' ?>><?= $c['sid'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="name">農場名稱</label>
                             <input type="text" class="form-control" id="farm" name="farm" required
                             value="<?= htmlentities($row['farm']) ?>">
@@ -90,11 +98,6 @@ $cates = $pdo->query($c_sql)->fetchAll();
                             <label for="address">活動簡介</label>
                             <textarea class="form-control" id="introduction" name="introduction" cols="30" rows="5"
                             ><?= htmlentities($row['introduction']) ?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">縣市分類代碼</label>
-                            <input type="text" class="form-control" id="category_sid" name="category_sid" required
-                            value="<?= htmlentities($row['category_sid']) ?>">
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn"

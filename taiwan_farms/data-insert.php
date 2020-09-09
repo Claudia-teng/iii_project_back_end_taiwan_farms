@@ -39,7 +39,15 @@ $cates = $pdo->query($c_sql)->fetchAll();
                             <label for="name">縣市</label>
                             <select class="form-control" id="city" name="city">
                                 <?php foreach($cates as $c): ?>
-                                    <option value="<?= $c['city'] ?>"><?= $c['city'] ?></option>
+                                    <option><?= $c['city'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">縣市分類代碼</label>
+                            <select class="form-control" id="category_sid" name="category_sid">
+                                <?php foreach($cates as $c): ?>
+                                    <option><?= $c['sid'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -67,10 +75,6 @@ $cates = $pdo->query($c_sql)->fetchAll();
                             <label for="address">活動簡介</label>
                             <textarea class="form-control" id="introduction" name="introduction" cols="30" rows="5"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="name">縣市分類代碼</label>
-                            <input type="text" class="form-control" id="category_sid" name="category_sid" required>
-                        </div>
                         <button type="button" class="btn"
                         onclick="file_input.click()">上傳照片</button>
                         <input type="hidden" id="myfile" name="myfile">
@@ -94,6 +98,7 @@ $cates = $pdo->query($c_sql)->fetchAll();
 </div>
 <?php include __DIR__. '/parts/__scripts.php'; ?>
 <script>
+
     const infobar = document.querySelector('#infobar');
     const file_input = document.querySelector('#file_input');
     const myfile = document.querySelector('#myfile');
@@ -142,5 +147,6 @@ $cates = $pdo->query($c_sql)->fetchAll();
                 });
 
     }
+
 </script>
 <?php include __DIR__. '/parts/__html_foot.php'; ?>
