@@ -148,5 +148,12 @@ $cates = $pdo->query($c_sql)->fetchAll();
 
     }
 
+    $('#city').on('change', function() {
+        let selectedNum = $(this).get(0).selectedIndex;
+        console.log(selectedNum);
+        $(this).parent().next().find('option').attr('selected', false).eq(selectedNum).attr('selected', true);
+        console.log($(this));
+    })
+
 </script>
 <?php include __DIR__. '/parts/__html_foot.php'; ?>
